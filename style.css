@@ -1,0 +1,688 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;700&display=swap');
+:root {
+    --dark-violet: hsl(256, 26%, 20%);
+    --grayish-blue: hsl(216, 30%, 68%);
+    --very-dark-violet: hsl(270, 9%, 17%);
+    --dark-grayish-blue: hsl(273, 4%, 51%); 
+    --very-light-gray: hsl(0, 0%, 98%);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    font-family: 'DM Serif Display', serif;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+/* Todos os itens de tiverem a classe conteiner vão ter uma largura fixa de 990px é o conteudo separado entre eles */
+.conteiner {
+    padding: 0 20px;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1200px;
+}
+
+
+.conteiner .logo {
+    display: flex;
+    align-items: center;
+}
+
+.conteiner .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    font-family: 'Karla', sans-serif;
+}
+
+
+
+/* Os icones do menu mobile vão começas escondidos */
+nav #hamburguer {
+    display: none;
+}
+
+nav #hamburguer:focus {
+    outline: none;
+}
+
+nav {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 0;
+    z-index: 100;
+}
+
+nav ul,
+nav li {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 27px;
+}
+
+nav a {
+    font-weight: 400;
+    color: var(--dark-grayish-blue);
+    opacity: 0.8;
+}
+
+nav a:hover {
+    color: #000;
+    opacity: 1.0;
+}
+
+nav .bnt {
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid var(--dark-grayish-blue);
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 7px 17px;
+}
+
+nav .bnt:hover {
+    background-color: var(--very-dark-violet);
+    color: white;
+}
+
+
+
+/* Essa section vai ter herdar a largura do conteiner, mas, vai ter uma altura fixa de 500px,
+o conteudo vai ficar centralizado e vão ter 30px de margin em cima*/
+header {
+    height: 580px;
+    display: flex;
+    justify-content: center;
+    background-color: #2c2640;
+    color: white;
+    position: relative;
+    margin-top: 80px;
+    margin-bottom: 250px;
+}
+
+
+/* Todos os itens dessa section vão ter um z-index de 1 */
+header * {
+    z-index: 1;
+}
+
+
+/* Aqui vamos ter uma elemento salvo depois de salvo no ultimo filho do elemento,
+ele vai ter um conteudo vazio, e uma images de fundo, não vai se repetir, e vai ficar no topo e na direita,
+vai ter um position:absolute para ficar em cima de todo elemento, ficando 100px do topo e fixo na direita,
+vai ter uma largura de 100% do espaço disponivel e uma altura de 70%, com z-index:2 ele fica por cima 
+da section*/
+header::after {
+    content: "";
+    background-image: url('images/bg-pattern-intro-right-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    height: 70%;
+    width: 100%;
+    z-index: 2;
+}
+
+
+/* E aqui vamor ter um antes no primeiro filho do elemento antigom,
+ele vai ter um conteudo vazio, e uma images de fundo, não vai se repetir, e vai ficar no fundo e na esquerda,
+vai ter um position:absolute para ficar em cima de todo elemento, ficando 40% do topo e fixo na esquerda,
+vai ter uma largura de 100% do espaço disponivel e uma altura de 70%, com z-index:0*/
+header::before {
+    content: "";
+    background-image: url('images/bg-pattern-intro-left-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    position: absolute;
+    bottom: -40%;
+    left: 0;
+    height: 70%;
+    width: 100%;
+    z-index: 0;
+}
+
+
+.conteiner-flex {
+    display: flex;
+}
+
+/* Todo conteudo dessa section na esquerda, todos esses itens vão ser flexiveis */
+.conteiner-flex .conteiner-flex-left {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'DM Serif Display', sans-serif;
+}
+
+
+/* Com esse position:relative, o que tem position:absolute vai ficar pisicionado relativamente com esse h1*/
+.conteiner-flex .conteiner-flex-left h1 {
+    font-size: 58px;
+    position: relative;
+    font-weight: 400;
+    padding-top: 30px;
+    margin-bottom: 15px;
+}
+
+
+/* Com o ::before vamor ter uma linha antes h1, com o position:relative no h1, ele vai ficar
+pisicionado relativamente com o h1*/
+
+.conteiner-flex .conteiner-flex-left h1::before {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100px;
+}
+
+.conteiner-flex .conteiner-flex-left p {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 14px;
+}
+
+
+.conteiner-flex .conteiner-flex-left .btn-main {
+    background-color: transparent;
+    border: 1px solid var(--very-light-gray);
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    padding: 7px 20px;
+    width: 200px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.conteiner-flex .conteiner-flex-left .btn-main:hover {
+    background-color: var(--very-light-gray);
+    color: #2c2640;
+}
+
+.conteiner-flex .conteiner-flex-right img { 
+    max-width: 100%;
+    margin-top: 90px;
+}
+
+
+
+#about {
+    display: flex;
+    justify-content: center;
+    margin-top: 260px;
+    font-family: 'DM Serif Display', serif;
+    z-index: 1;
+}
+
+.conteiner-about {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteiner-about  h2 {
+    padding-top: 20px;
+    margin-bottom: 60px;
+    margin-left: 10px;
+    position: relative;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.conteiner-about h2::before {
+    content: "";
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100px;
+}
+
+.conteiner-about .conteiner-about-information {
+    display: flex;
+}
+
+.conteiner-about .conteiner-about-information .box {
+    flex: 1;
+    margin-right: 40px;
+    margin-bottom: 100px;
+    margin-left: 20px;
+}
+
+.conteiner-about .conteiner-about-information .box-img img {
+    width: 75px;
+}
+
+.conteiner-about .conteiner-about-information .box-title {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.conteiner-about .conteiner-about-information .box p {
+    margin-top: 12px;
+    color: #9a9a9c;
+    font-size: 14px;
+}
+
+
+#how-we-work {
+    display: flex;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+}
+
+.conteiner-work {
+    background-color: var(--dark-violet);
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-violet);
+	background-image: url('./images/bg-pattern-how-we-work-desktop.svg');
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-size: 50% 100%;
+	padding: 70px;
+	margin: 100px auto;
+}
+
+
+
+
+.conteiner-work .left {
+    flex: 1;
+}
+
+.conteiner-work .left h2 {
+    color: white;
+    font-weight: 400;
+    font-size: 28px;
+    padding: 58px 0 62px 60px;
+}
+
+.conteiner-work .right {
+    padding-right: 80px;
+}
+
+.conteiner-work .right .btn-work {
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: 1px solid var(--very-light-gray);
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 7px 20px;
+}
+
+.conteiner-work .right .btn-work:hover {
+    background-color: var(--very-light-gray);
+    color: var(--dark-violet);
+}
+
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    background: url('images/bg-pattern-footer-desktop.svg') no-repeat left #fafafa;
+}
+
+.conteiner-footer {
+    flex-direction: column;
+    margin-top: 45px;
+}
+
+.conteiner-footer .nav-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--dark-violet);
+    margin-bottom: 30px;
+}
+
+.conteiner-footer .nav-footer .logo {
+    margin-bottom: 20px;
+    margin-left: 16px;
+}
+
+.conteiner-footer .nav-footer .social ul {
+    display: flex;
+    align-items: center;
+}
+
+.conteiner-footer .nav-footer .social ul li {
+    margin-left: 17px;
+    margin-bottom: 20px;
+}
+
+.conteiner-footer .nav-footer .social ul li:last-child {
+    margin-right: 10px;
+}
+
+
+.conteiner-footer .conteiner-footer-informations {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.conteiner-footer .conteiner-footer-informations .conteiner-footer-information {
+    flex: 1;
+}
+
+.conteiner-footer .conteiner-footer-informations .conteiner-footer-information.company {
+    margin-left: 14px;
+}
+
+.conteiner-footer .conteiner-footer-informations .conteiner-footer-information h3 {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #9a9a9c;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700; 
+    margin-bottom: 40px;
+}
+
+
+.conteiner-footer .conteiner-footer-informations .conteiner-footer-information ul li {
+    font-family: 'Karla', sans-serif;
+    margin-bottom: 10px;
+}
+
+
+.conteiner-footer .conteiner-footer-informations .conteiner-footer-information ul li a {
+    color: #000;
+    font-size: 14px;
+}
+
+.conteiner-footer .conteiner-footer-informations .conteiner-footer-information ul li a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width:840px) {
+    .conteiner-flex .conteiner-flex-right img{
+        width: 70%;
+        margin-left: 100px;
+    }
+}
+
+
+
+@media screen and (max-width:768px) {
+    body {
+        text-align: center;
+    }
+
+    .menu {
+        flex-direction: column;
+    }
+
+    nav #hamburguer {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        display: flex;
+    }
+
+    nav #hamburguer #close-mobile {
+        display: none;
+    }
+
+    nav #hamburguer.show #open-mobile{
+        display: none;
+    }
+
+    nav #hamburguer.show #close-mobile {
+        display: block;
+    }
+
+    nav .menu {
+        flex-direction: row;
+        margin-bottom: 20px;
+    }
+
+    .conteiner .logo-conteiner {
+        margin-left: 20px;
+    }
+
+    .conteiner .menu ul {
+        display: none;
+    }
+
+    .conteiner .menu ul.show {
+        background-color: var(--very-dark-violet);
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        padding-top: 30px;
+        margin: 0;
+        top: 50px;
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 50px);
+        z-index: 100;
+    }
+
+
+
+    nav ul li {
+        margin: 10px 0;
+        color: white;
+        font-family: 'Karla', sans-serif;
+    }
+
+    nav ul .btn {
+        color: white;
+        border-color: white;
+        padding: 10px 20%;
+    }
+
+
+    header {
+        background-color: #2c2640;
+        padding-top: 0;
+        margin-bottom: 50px;
+        height: auto;
+    }
+
+    header::after,
+    header::before {
+        display: none;
+    }
+        
+
+    .conteiner-flex {
+        flex-direction: column-reverse;
+    }
+
+    .conteiner-flex .conteiner-flex-left h1 {
+        font-size: 40px;
+        text-align: center;
+        margin-left: 18px;
+    }
+
+    .conteiner-flex .conteiner-flex-left h1::before {
+        display: none;
+    }
+
+
+    .conteiner-flex .conteiner-flex-right img {
+        margin: -14px auto 0;
+        max-width: calc(100% + 40px);
+    }
+
+    .conteiner-flex .conteiner-flex-left {
+        justify-content: center;
+    }
+
+    .conteiner-flex .conteiner-flex-left-border {
+        display: none;
+    }
+
+    .conteiner-flex .conteiner-flex-left h1 {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .conteiner-flex .conteiner-flex-left p {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+
+    .conteiner-flex .conteiner-flex-left .btn-main {
+        width: 150px;
+        margin: 30px auto;
+    }
+
+
+
+
+    .conteiner-about h2 {
+        font-size: 40px;
+        position: relative;
+        padding-top: 30px;
+    }
+
+    .conteiner-about h2::before {
+        display: none;
+    }
+
+    .conteiner-about .conteiner-about-information {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .conteiner-about .conteiner-about-information .box {
+        margin: 0 auto;
+    }
+
+    .conteiner-about .conteiner-about-information .box .box-img img {
+        margin-top: 40px;
+        margin-left: 50px;
+    }
+
+    .conteiner-about .conteiner-about-information .box .box-title {
+        margin-right: 20px;
+        margin-bottom: 24px;
+        font-size: 24px;
+    }
+
+    .conteiner-about .conteiner-about-information .box p {
+        font-size: 18px;
+    }
+
+    .conteiner-about .conteiner-about-information .box .box-img {
+        margin-right: 100px;
+    }
+    
+    
+
+    .conteiner-work {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--dark-violet);
+        background-image: url('images/bg-pattern-how-we-work-desktop.svg');
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-size: 50% 100%;
+        padding: 70px;
+        margin: 100px auto; 
+    }
+
+    .conteiner-work .left h2{
+        font-size: 30px;
+        line-height: 35px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .conteiner-work .right .btn-work {
+        margin-left: 80px;
+        width: 200px;
+    }
+
+
+    footer {
+        background-image: url('images/bg-pattern-footer-mobile.svg');
+        background-size: 100% auto;
+        background-position: top center;
+    }
+
+    .conteiner-footer .nav-footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .conteiner-footer .nav-footer .logo {
+        justify-content: center;
+    }
+
+    .conteiner-footer .nav-footer .social ul {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        /* margin-left: 110px; */
+        justify-content: center;
+    }
+
+    .conteiner-footer .conteiner-footer-informations {
+        flex-direction: column;
+        margin: 20px auto;
+    }
+
+    .conteiner-footer .conteiner-footer-informations .conteiner-footer-information {
+        margin-left: 10px;
+    }
+
+    .conteiner-footer .conteiner-footer-informations .conteiner-footer-information.help h3,
+    .conteiner-footer .conteiner-footer-informations .conteiner-footer-information.contact h3,
+    .conteiner-footer .conteiner-footer-informations .conteiner-footer-information.others h3{
+       margin-top: 15px;
+    }
+}
